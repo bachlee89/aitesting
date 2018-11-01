@@ -1,0 +1,17 @@
+{
+  "authors": [
+    {
+      "name": "Bach Lee",
+      "email": "bach@balanceinternet.com.au",
+      "role": "Developer"
+    }
+  ],
+    "autoload": {
+        "psr-4": {
+            "Testing": "apps/Testing"
+        }
+    },
+    "require": {
+        "applitools/eyes.sdk.php": "^1.3"
+    }
+}
