@@ -5,7 +5,7 @@
  */
 require_once(__DIR__ . '/../apps/autoload.php');
 
-use Testing\LinenHouse\Pages\HomePage;
+use Testing\RbSellars\Pages\HomePage;
 
 $homePage = new HomePage();
 $homePage->run();

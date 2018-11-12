@@ -8,10 +8,10 @@
   ],
     "autoload": {
         "psr-4": {
-            "Testing": "apps/Testing"
+            "Testing\\": "apps/Testing"
         }
     },
     "require": {
-        "applitools/eyes.sdk.php": "^1.3"
+        "applitools/eyes.sdk.php": "dev-master"
     }
 }

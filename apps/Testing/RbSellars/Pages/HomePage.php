@@ -4,7 +4,7 @@
  * @copyright  (c) 2018 Balance Internet (https://www.balanceinternet.com.au)
  */
 
-namespace Testing\LinenHouse\Pages;
+namespace Testing\RbSellars\Pages;
 
 use Testing\Testing;
 use Applitools\RectangleSize;
@@ -30,9 +30,10 @@ class HomePage extends Testing
      */
     private function initTest()
     {
-        $this->setAppName('LinenHouse');
-        $this->setTestName('LinenHouse Homepage v5');
-        $this->setBatchInfo('LinenHouse Homepage v5 Batch');
+        $this->setAppName('RBSellars');
+        $this->setTestName('RBSellars Homepage v1');
+        $this->setBatchInfo('RBSellars Homepage v1 Batch');
+        $this->setWebUrl('https://balance:bal@n6!@staging.rbsellars.com.au/');
     }
 
     /**
@@ -59,14 +60,14 @@ class HomePage extends Testing
 //        $innerDriver = $this->getInnerDriver('Edge', '17.0');
         $drivers = [
             ['Chrome' => '63.0'],
-            ['Chrome' => '53.0'],
-            ['Chrome' => '43.0'],
+//            ['Chrome' => '53.0'],
+//            ['Chrome' => '43.0'],
             ['Firefox' => '63.0'],
-            ['Firefox' => '53.0'],
-            ['Firefox' => '43.0'],
-            ['Firefox' => '33.0'],
-            ['Edge' => '17.0'],
-            ['Edge' => '16.0'],
+//            ['Firefox' => '53.0'],
+//            ['Firefox' => '43.0'],
+//            ['Firefox' => '33.0'],
+//            ['Edge' => '17.0'],
+//            ['Edge' => '16.0'],
         ];
         foreach ($drivers as $driver) {
             foreach ($driver as $browser => $version) {
@@ -97,7 +98,10 @@ class HomePage extends Testing
             "os_version" => "10"
         ];
         return RemoteWebDriver::create('https://bach12:jVQQwzQxhNj5Yqs78p4A@hub-cloud.browserstack.com/wd/hub',
-            $capabilities);
+            $capabilities,
+            60000,
+            60000
+        );
     }
 
     /**
@@ -111,8 +115,9 @@ class HomePage extends Testing
     private function test($innerDriver, $viewportSize, $pointName)
     {
         $eyes = $this->getEyes();
+        $eyes->setForceFullPageScreenshot(true);
         // Start the test and set the browser's viewport size
-        $driver = $eyes->open($innerDriver, $this->getAppName(), $this->getAppName(), $viewportSize);
+        $driver = $eyes->open($innerDriver, $this->getAppName(), $this->getTestName(), $viewportSize);
         try {
             $driver->get($this->getWebUrl());
             $eyes->checkWindow($pointName);
